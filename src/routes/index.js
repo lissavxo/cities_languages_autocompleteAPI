@@ -1,9 +1,7 @@
-var express = require('express');
-var router = express.Router();
-
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+const express = require('express');
+const router = express.Router();
+const CitiesController = require("../controller/CitiesController")
+/* GET home page. */ 
+router.get('/:lang/:inpuString', CitiesController.getAllCitiesByLang);
 
 module.exports = router;
