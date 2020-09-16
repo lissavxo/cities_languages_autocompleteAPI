@@ -23,18 +23,17 @@ class CitiesRepository {
         if(!citiesByLang) {
             throw "error database is not working well"
         }
-        console.log(citiesByLang)
-        // citiesByLang.map((c)=>{
-        //     if(c.city_name==name){
-        //         cityId = c.city_id
-        //     }
-        // })
-        // let result = undefined
-        // if(cityId){
-        //     result = await this.queriesHandler.custom("SELECT city_name, city_id FROM city_info_lang WHERE lang="+"'"+lang+"'");
-        // }
+        citiesByLang.map((c)=>{
+            if(c.city_name==name){
+                cityId = c.city_id
+            }
+        })
+        let result = undefined
+        if(cityId){
+            result = await this.queriesHandler.custom("SELECT city_name, city_id FROM city_info_lang WHERE lang="+"'"+lang+"'");
+        }
 
-        // return result
+        return result
     }
 
     getLatLonFromCityId(cityId){
